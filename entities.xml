@@ -1,0 +1,14 @@
+<root>
+	<entity>
+		<id>hero</id>
+		<data>
+			<texture>walk_cycle.png</texture>
+			<width>16</width>
+			<height>16</height>
+			<startFrame>9</startFrame>
+			<tileX>11</tileX>
+			<tileY>3</tileY>
+			<layer>1</layer>
+		</data>
+	</entity>
+</root>

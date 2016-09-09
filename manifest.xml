@@ -1,0 +1,70 @@
+<manifest>
+	<!-- TEXTURES -->
+	<resource>
+		<type>texture</type>
+		<base>Assets/Textures/</base>				
+		<item>
+			<id>walk_cycle.png</id>
+			<data>
+				<path>walk_cycle.png</path>
+			</data>
+		</item>
+		<item>
+			<id>simple_panel.png</id>
+			<data>
+				<path>gradient_panel.png</path>
+			</data>
+		</item>
+		<item>
+			<id>avatar.png</id>
+			<data>
+				<path>avatar.png</path>
+			</data>
+		</item>
+		<item>
+			<id>continue_caret.png</id>
+			<data>
+				<path>continue_caret.png</path>
+			</data>
+		</item>
+		<item>
+			<id>cursor.png</id>
+			<data>
+				<path>cursor.png</path>
+			</data>
+		</item>
+	</resource>
+	
+	<!-- FONTS -->
+	<resource>
+		<type>font</type>
+		<base>Assets/Fonts/</base>				
+		<item>
+			<id>default</id>
+			<data>
+				<path>arial.ttf</path>
+			</data>
+		</item>		
+		<item>
+			<id>Main</id>
+			<data>
+				<path>arial.ttf</path>
+			</data>
+		</item>
+	</resource>
+	
+	<!-- FILES -->
+	<resource>
+		<type>file</type>
+		<base>Assets/</base>				
+		<item>
+			<id>keys.cfg</id>
+			<data>
+				<path>keys.cfg.txt</path>
+			</data>
+		</item>
+	</resource>
+	
+	<!-- LINKS -->
+	<link>Assets/test.xml</link>
+</manifest>

@@ -1,0 +1,99 @@
+<manifest>
+	<resource>
+		<type>entity</type>							
+		<item>
+			<id>hero</id>
+			<data>
+				<texture>walk_cycle.png</texture>
+				<width>16</width>
+				<height>24</height>
+				<startFrame>9</startFrame>
+				<tileX>11</tileX>
+				<tileY>3</tileY>
+				<layer>0</layer>
+			</data>
+		</item>		
+	</resource>
+	
+	<!-- CHARACTERS -->
+	<resource>
+		<type>character</type>		
+		
+		<!-- STROLLING NPC -->
+		<item>
+			<id>strolling_npc</id>
+			<data>
+				<entity>hero</entity>
+				<anims>
+					<sequence>
+						<id>up</id>
+						<frames>1 2 3 4</frames>						
+					</sequence>
+					<sequence>
+						<id>right</id>
+						<frames>5 6 7 8</frames>						
+					</sequence>
+					<sequence>
+						<id>down</id>
+						<frames>9 10 11 12</frames>						
+					</sequence>
+					<sequence>
+						<id>left</id>
+						<frames>13 14 15 16</frames>						
+					</sequence>
+				</anims>				
+				<controllers>
+					<controller>plan_stroll</controller>
+					<controller>move</controller>
+				</controllers>
+				<state>plan_stroll</state>
+				<facing>down</facing>
+			</data>
+		</item>		
+		
+		<!-- STANDING NPC -->
+		<item>
+			<id>standing_npc</id>
+			<data>
+				<entity>hero</entity>
+				<controllers>
+					<controller>npc_stand</controller>					
+				</controllers>
+				<state>npc_stand</state>
+				<facing>down</facing>
+			</data>
+		</item>		
+		
+		<!-- HERO -->
+		<item>
+			<id>hero</id>
+			<data>
+				<entity>hero</entity>
+				<anims>
+					<sequence>
+						<id>up</id>
+						<frames>1 2 3 4</frames>						
+					</sequence>
+					<sequence>
+						<id>right</id>
+						<frames>5 6 7 8</frames>						
+					</sequence>
+					<sequence>
+						<id>down</id>
+						<frames>9 10 11 12</frames>						
+					</sequence>
+					<sequence>
+						<id>left</id>
+						<frames>13 14 15 16</frames>						
+					</sequence>
+				</anims>				
+				<controllers>
+					<controller>wait</controller>
+					<controller>move</controller>
+				</controllers>
+				<state>wait</state>
+				<facing>down</facing>
+			</data>
+		</item>				
+	</resource>
+</manifest>
