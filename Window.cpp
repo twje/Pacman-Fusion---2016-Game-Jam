@@ -1,10 +1,10 @@
 #include "Window.h"
 
-Window::Window(){ 
+Window::Window(){
 	Setup("Window", sf::Vector2u(640,480));
 }
 
-Window::Window(const std::string& title, const sf::Vector2u& size){ 
+Window::Window(const std::string& title, const sf::Vector2u& size){
 	Setup(title,size);
 }
 
@@ -48,7 +48,7 @@ sf::FloatRect Window::GetViewSpace(){
 	return viewSpace;
 }
 
-void Window::ToggleFullscreen(EventDetails* l_details){
+void Window::ToggleFullscreen(EventDetails* l_details) {
 	m_isFullscreen = !m_isFullscreen;
 	m_window.close();
 	Create();

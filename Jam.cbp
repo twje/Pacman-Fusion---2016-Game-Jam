@@ -310,6 +310,7 @@
 		<Unit filename="Window.h">
 			<Option virtualFolder="Game/GUI/" />
 		</Unit>
+		<Unit filename="WindowView.hpp" />
 		<Unit filename="base64/base64.cpp">
 			<Option virtualFolder="TMX/" />
 		</Unit>

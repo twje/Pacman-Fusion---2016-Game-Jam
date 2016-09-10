@@ -26,6 +26,8 @@ private:
     TweenFunc m_tweenFunc;
 
 public:
+    Tween(){}
+
     Tween(float l_start, float l_finish, float l_totalDuration, TweenFunc l_tweenFunc = linear)
     {
         reset(l_start, l_finish, l_totalDuration, l_tweenFunc);

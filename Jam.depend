@@ -2017,7 +2017,7 @@
 	"POJO.hpp"
 	<string>
 
-1473455067 source:c:\users\thomas\desktop\jam\eventmanager.cpp
+1473476697 source:c:\users\thomas\desktop\jam\eventmanager.cpp
 	<cstring>
 	"EventManager.h"
 	"StateManager.h"
@@ -2137,7 +2137,7 @@
 	"IResourceLoader.hpp"
 	"Common.hpp"
 
-1473455136 source:c:\users\thomas\desktop\jam\game.cpp
+1473477673 source:c:\users\thomas\desktop\jam\game.cpp
 	"Game.h"
 
 1473455082 c:\users\thomas\desktop\jam\game.h
@@ -2185,12 +2185,13 @@
 	"Utilities.h"
 	<SFML/Graphics.hpp>
 
-1473425939 source:c:\users\thomas\desktop\jam\main.cpp
+1473477953 source:c:\users\thomas\desktop\jam\main.cpp
 	"Game.h"
 	"WidgetImp.hpp"
 	<SFML/Graphics.hpp>
 	"AddNPCAction.hpp"
 	"Map.hpp"
+	"Tween.hpp"
 
 1473424530 c:\users\thomas\desktop\jam\widgetimp.hpp
 	<SFML/Graphics.hpp>
@@ -2215,7 +2216,7 @@
 1471685337 c:\users\thomas\desktop\jam\animation.hpp
 	<vector>
 
-1471612888 c:\users\thomas\desktop\jam\tween.hpp
+1473471015 c:\users\thomas\desktop\jam\tween.hpp
 	<iostream>
 
 1471650512 source:c:\users\thomas\desktop\jam\npcstandstate.cpp
@@ -2277,7 +2278,7 @@
 1471432945 source:c:\users\thomas\desktop\jam\resourcemanager.cpp
 	"ResourceManager.hpp"
 
-1473424644 source:c:\users\thomas\desktop\jam\state_mainmenu.cpp
+1473476585 source:c:\users\thomas\desktop\jam\state_mainmenu.cpp
 	"State_MainMenu.h"
 	"StateManager.h"
 
@@ -2303,10 +2304,11 @@
 1471599423 c:\users\thomas\desktop\jam\waitstate.hpp
 	"StateMachine.hpp"
 
-1472345412 source:c:\users\thomas\desktop\jam\statemanager.cpp
+1473477657 source:c:\users\thomas\desktop\jam\statemanager.cpp
 	"StateManager.h"
 	"BaseState.h"
 	"State_MainMenu.h"
+	"Sate_Game.hpp"
 
 1471655967 source:c:\users\thomas\desktop\jam\teleportaction.cpp
 	"TeleportAction.hpp"
@@ -2521,6 +2523,21 @@
 	"Entity.hpp"
 	"MoveState.hpp"
 
-1457906655 source:c:\users\thomas\desktop\jam\window.cpp
+1473476826 source:c:\users\thomas\desktop\jam\window.cpp
 	"Window.h"
+
+1473478779 source:c:\users\thomas\desktop\jam\state_game.cpp
+	"Sate_Game.hpp"
+	"StateManager.h"
+
+1473477975 c:\users\thomas\desktop\jam\sate_game.hpp
+	"BaseState.h"
+	<SFML/Graphics.hpp>
+	"EventManager.h"
+	"GameCamera.hpp"
+
+1473479017 c:\users\thomas\desktop\jam\gamecamera.hpp
+	<iostream>
+	"SharedContext.h"
+	"Tween.hpp"
 

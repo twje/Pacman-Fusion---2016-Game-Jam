@@ -13,7 +13,7 @@ void State_MainMenu::OnCreate(){
 	//gui->LoadInterface(StateType::MainMenu, "TextBox.interface", "MainMenu");
 	//gui->GetInterface(StateType::MainMenu, "MainMenu")->SetPosition(sf::Vector2f(250.f, 168.f));
 
-    std::cout << "called" << std::endl;
+    //std::cout << "called" << std::endl;
 
 	/*
 	EventManager* eMgr = m_stateMgr->GetContext()->m_eventManager;
@@ -50,7 +50,14 @@ void State_MainMenu::Play(EventDetails* l_details){ /*m_stateMgr->SwitchTo(State
 void State_MainMenu::Quit(EventDetails* l_details){ /*m_stateMgr->GetContext()->m_wind->Close();*/ }
 void State_MainMenu::Draw()
 {
-    sf::RenderWindow& window = *GetStateManager()->GetContext()->m_wind->GetRenderWindow();
+
+    // claim view
+
+    //
+
+    //sf::RenderWindow& window = *GetStateManager()->GetContext()->m_wind->GetRenderWindow();
+
+    // Draw using window
 
     //m_widget->draw(window);
 }

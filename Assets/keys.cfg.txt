@@ -15,5 +15,3 @@ Player_MoveRight 24:3
 Player_MoveUp 24:22
 Player_MoveDown 24:18
 Player_Attack 24:58
-MainMenu_Play 27:MainMenu:Play
-MainMenu_Quit 27:MainMenu:Quit
