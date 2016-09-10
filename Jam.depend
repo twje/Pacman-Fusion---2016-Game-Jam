@@ -1872,7 +1872,7 @@
 1471764518 c:\users\thomas\desktop\jam\common.hpp
 	<string>
 
-1471744142 c:\users\thomas\desktop\jam\map.hpp
+1473497185 c:\users\thomas\desktop\jam\map.hpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	<list>
@@ -2528,17 +2528,19 @@
 1473476826 source:c:\users\thomas\desktop\jam\window.cpp
 	"Window.h"
 
-1473488054 source:c:\users\thomas\desktop\jam\state_game.cpp
+1473498266 source:c:\users\thomas\desktop\jam\state_game.cpp
 	"Sate_Game.hpp"
 	"StateManager.h"
+	"Utilities.h"
 
-1473477975 c:\users\thomas\desktop\jam\sate_game.hpp
+1473496738 c:\users\thomas\desktop\jam\sate_game.hpp
 	"BaseState.h"
 	<SFML/Graphics.hpp>
 	"EventManager.h"
 	"GameCamera.hpp"
+	"Map.hpp"
 
-1473488891 c:\users\thomas\desktop\jam\gamecamera.hpp
+1473497496 c:\users\thomas\desktop\jam\gamecamera.hpp
 	<iostream>
 	"SharedContext.h"
 	"Tween.hpp"

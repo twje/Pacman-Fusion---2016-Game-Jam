@@ -31,10 +31,11 @@ private:
     ActionFactory m_factory;
 
 public:
-    Map(std::vector<std::pair<std::string, Object*>> &l_wakeup)
+    Map(std::vector<std::pair<std::string, Object*>> &l_wakeup, std::string l_path)
     {
         m_map = new Tmx::Map();
-        m_map->ParseFile("C:/Users/Thomas/Desktop/How to Make an RPG/example_1_explore/examples_explore/npc-4-solution/small_room.tmx");
+        //m_map->ParseFile("C:/Users/Thomas/Desktop/How to Make an RPG/example_1_explore/examples_explore/npc-4-solution/small_room.tmx");
+        m_map->ParseFile(l_path);
         m_tileWidth = m_map->GetTileWidth();
         m_tileHeight = m_map->GetTileHeight();
         m_xTiles = m_map->GetWidth();

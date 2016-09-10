@@ -43,13 +43,17 @@ private:
     Tween m_slider1;
     Tween m_slider2;
     sf::View m_hud;
+    float m_hudSpace;
     float m_dullColor;
+    float m_expandDuration;
 
 public:
-    GameCamera(SharedContext* l_context, float l_scaleRatio, float l_duration):
+    GameCamera(SharedContext* l_context, float l_hudSpace, float l_scaleRatio, float l_duration):
     m_context(l_context),
     m_duration(l_duration),
-    m_dullColor(0.7f)
+    m_dullColor(0.7f),
+    m_expandDuration(0.01f),
+    m_hudSpace(l_hudSpace)
     {
         int portWidth = l_context->m_wind->GetWindowSize().x / 3.f;
         int expand = portWidth * l_scaleRatio;
@@ -71,7 +75,7 @@ public:
 
         // Init borders
         sf::RectangleShape border;
-        border.setOutlineThickness(-3);
+        border.setOutlineThickness(-5);
         border.setFillColor(sf::Color::Transparent);
 
         m_borders[ViewPortID::RED] = border;
@@ -79,20 +83,23 @@ public:
         m_borders[ViewPortID::BLUE] = border;
 
         // Init sliders
-        m_slider1.reset(portWidth, portWidth, 1.0f);
-        m_slider2.reset(2*portWidth, 2*portWidth, 1.0f);
+        m_slider1.reset(portWidth, portWidth, m_expandDuration);
+        m_slider2.reset(2*portWidth, 2*portWidth, m_expandDuration);
         updateViewPorts();
     }
 
-    bool isExpanding() { return m_slider1.isFinished() && m_slider2.isFinished(); }
+    bool isExpanding() { return !m_slider1.isFinished() || !m_slider2.isFinished(); }
 
     void update(float dt)
     {
+        //std::cout << dt << std::endl;
+
+        float constant = 3.0f;
         if (isExpanding())
         {
+            m_slider1.update(dt * constant);
+            m_slider2.update(dt * constant);
             updateViewPorts();
-            m_slider1.update(dt);
-            m_slider2.update(dt);
         }
     }
 
@@ -153,7 +160,7 @@ private:
         float winHeight = m_context->m_wind->GetWindowSize().y;
 
         float portWidth = m_slider1.value();
-        float portHeight = winHeight;
+        float portHeight = winHeight - m_hudSpace;
 
         float l = 0;
         float t = 0;
@@ -185,7 +192,7 @@ private:
         float winHeight = m_context->m_wind->GetWindowSize().y;
 
         float portWidth = m_slider2.value() - m_slider1.value();
-        float portHeight = winHeight;
+        float portHeight = winHeight - m_hudSpace;
 
         float l = m_slider1.value() / winWidth;
         float t = 0;
@@ -201,7 +208,7 @@ private:
         border.setPosition(l * winWidth, t * winHeight);
 
         sf::Color borderColor = sf::Color::Green;
-        if (m_currentState != ViewPortStateID::ACTIVE_RED || m_currentState == ViewPortStateID::ACTIVE_START)
+        if (m_currentState != ViewPortStateID::ACTIVE_GREEN || m_currentState == ViewPortStateID::ACTIVE_START)
         {
             borderColor = dullCOlor(borderColor, m_dullColor);
         }
@@ -217,7 +224,7 @@ private:
         float winHeight = m_context->m_wind->GetWindowSize().y;
 
         float portWidth = winWidth - m_slider2.value();
-        float portHeight = winHeight;
+        float portHeight = winHeight  - m_hudSpace;
 
         float l = m_slider2.value() / winWidth;
         float t = 0;
@@ -233,7 +240,7 @@ private:
         border.setPosition(l * winWidth, t * winHeight);
 
         sf::Color borderColor = sf::Color::Blue;
-        if (m_currentState != ViewPortStateID::ACTIVE_RED || m_currentState == ViewPortStateID::ACTIVE_START)
+        if (m_currentState != ViewPortStateID::ACTIVE_BLUE || m_currentState == ViewPortStateID::ACTIVE_START)
         {
             borderColor = dullCOlor(borderColor, m_dullColor);
         }

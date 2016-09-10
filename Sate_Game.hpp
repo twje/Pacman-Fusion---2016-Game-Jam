@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "EventManager.h"
 #include "GameCamera.hpp"
+#include "Map.hpp"
 
 //*************
 // SampleLevel
@@ -52,6 +53,7 @@ class State_Game : public BaseState{
 private:
     GameCamera m_camera;
     SampleLevel m_sample;
+    Map* m_map;
 
 public:
 	State_Game(StateManager* l_stateManager);
