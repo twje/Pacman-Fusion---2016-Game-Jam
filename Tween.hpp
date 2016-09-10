@@ -42,6 +42,7 @@ public:
         m_isFinished = false;
         m_timePassed = 0;
         m_distance = l_finish - l_start;
+        update(0);
     }
 
     void update(float dt)

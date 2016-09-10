@@ -5,7 +5,7 @@
 State_Game::State_Game(StateManager* l_stateManager):
 BaseState(l_stateManager),
 m_camera(l_stateManager->GetContext(), 1.5f, 4.0f),
-m_sample(64, 10, 10)
+m_sample(64, 100, 100)
 {}
 
 State_Game::~State_Game(){}
@@ -28,20 +28,18 @@ void State_Game::Draw()
 
     for(int i = 0; i < 3; i++)
     {
-        if (i != 1){ continue; }
+        //if (i != 2){ continue; }
 
         sf::View& view = m_camera.getView(i);
         window->setView(view);
-
-        //std::cout << view.getViewport().left << std::endl;
-
         m_sample.draw(*window);
     }
+    m_camera.drawBorders(*window);
 }
 
 void State_Game::Update(const sf::Time& l_dT)
 {
-
+    m_camera.update(l_dT.asSeconds());
 }
 
 void State_Game::Deactivate(){}

@@ -103,6 +103,7 @@
 		</Unit>
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
+		<Unit filename="GameCamera.hpp" />
 		<Unit filename="IAction.hpp">
 			<Option virtualFolder="Game/Actions/" />
 		</Unit>
@@ -147,6 +148,9 @@
 		<Unit filename="ResourceManager.hpp">
 			<Option virtualFolder="Game/Managers/Resource/" />
 		</Unit>
+		<Unit filename="Sate_Game.hpp">
+			<Option virtualFolder="Game/Managers/State/Instance/" />
+		</Unit>
 		<Unit filename="SharedContext.h">
 			<Option virtualFolder="Game/Common/" />
 		</Unit>
@@ -162,10 +166,19 @@
 		<Unit filename="StateManager.h">
 			<Option virtualFolder="Game/Managers/State/" />
 		</Unit>
+		<Unit filename="State_Game.cpp">
+			<Option virtualFolder="Game/Managers/State/Instance/" />
+		</Unit>
 		<Unit filename="State_MainMenu.cpp">
 			<Option virtualFolder="Game/Managers/State/Instance/" />
 		</Unit>
 		<Unit filename="State_MainMenu.h">
+			<Option virtualFolder="Game/Managers/State/Instance/" />
+		</Unit>
+		<Unit filename="State_Splash.cpp">
+			<Option virtualFolder="Game/Managers/State/Instance/" />
+		</Unit>
+		<Unit filename="State_Splash.hpp">
 			<Option virtualFolder="Game/Managers/State/Instance/" />
 		</Unit>
 		<Unit filename="TeleportAction.cpp">
@@ -298,6 +311,7 @@
 		<Unit filename="Util.hpp">
 			<Option virtualFolder="Game/Common/" />
 		</Unit>
+		<Unit filename="Utilities.h" />
 		<Unit filename="WaitState.cpp">
 			<Option virtualFolder="Game/States/" />
 		</Unit>

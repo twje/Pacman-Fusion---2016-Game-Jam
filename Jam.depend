@@ -1938,10 +1938,11 @@
 	"ResourceManager.hpp"
 	"ResourceFactory.hpp"
 
-1472302942 c:\users\thomas\desktop\jam\resourcemanager.hpp
+1473482767 c:\users\thomas\desktop\jam\resourcemanager.hpp
 	<memory>
 	"ResourceLoader.hpp"
 	"Common.hpp"
+	"Utilities.h"
 
 1472301291 c:\users\thomas\desktop\jam\resourceloader.hpp
 	<string>
@@ -2137,7 +2138,7 @@
 	"IResourceLoader.hpp"
 	"Common.hpp"
 
-1473477673 source:c:\users\thomas\desktop\jam\game.cpp
+1473485283 source:c:\users\thomas\desktop\jam\game.cpp
 	"Game.h"
 
 1473455082 c:\users\thomas\desktop\jam\game.h
@@ -2216,7 +2217,7 @@
 1471685337 c:\users\thomas\desktop\jam\animation.hpp
 	<vector>
 
-1473471015 c:\users\thomas\desktop\jam\tween.hpp
+1473485685 c:\users\thomas\desktop\jam\tween.hpp
 	<iostream>
 
 1471650512 source:c:\users\thomas\desktop\jam\npcstandstate.cpp
@@ -2304,9 +2305,10 @@
 1471599423 c:\users\thomas\desktop\jam\waitstate.hpp
 	"StateMachine.hpp"
 
-1473477657 source:c:\users\thomas\desktop\jam\statemanager.cpp
+1473479948 source:c:\users\thomas\desktop\jam\statemanager.cpp
 	"StateManager.h"
 	"BaseState.h"
+	"State_Splash.hpp"
 	"State_MainMenu.h"
 	"Sate_Game.hpp"
 
@@ -2526,7 +2528,7 @@
 1473476826 source:c:\users\thomas\desktop\jam\window.cpp
 	"Window.h"
 
-1473478779 source:c:\users\thomas\desktop\jam\state_game.cpp
+1473488054 source:c:\users\thomas\desktop\jam\state_game.cpp
 	"Sate_Game.hpp"
 	"StateManager.h"
 
@@ -2536,8 +2538,19 @@
 	"EventManager.h"
 	"GameCamera.hpp"
 
-1473479017 c:\users\thomas\desktop\jam\gamecamera.hpp
+1473488891 c:\users\thomas\desktop\jam\gamecamera.hpp
 	<iostream>
 	"SharedContext.h"
 	"Tween.hpp"
+
+1473484426 c:\users\thomas\desktop\jam\state_splash.hpp
+	<SFML/Graphics.hpp>
+	"ResourceManager.hpp"
+	"BaseState.h"
+	"EventManager.h"
+	"Tween.hpp"
+
+1473485196 source:c:\users\thomas\desktop\jam\state_splash.cpp
+	"State_Splash.hpp"
+	"StateManager.h"
 

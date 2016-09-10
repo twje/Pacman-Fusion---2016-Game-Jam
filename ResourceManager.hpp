@@ -4,6 +4,7 @@
 #include <memory>
 #include "ResourceLoader.hpp"
 #include "Common.hpp"
+#include "Utilities.h"
 
 //****************
 // ResourceManager
@@ -24,28 +25,40 @@ public:
     ~ResourceManager() { /* implement purge */ }
 
     static ResourceManager* getInstance(){
-        if (!m_self) { m_self = new ResourceManager("C:/Users/Thomas/Desktop/RPGv2/manifest.xml"); }
+
+        if (!m_self) { m_self = new ResourceManager(Utils::GetWorkingDirectory() + "manifest.xml"); }
 
         return m_self;
     }
 
     bool requireResource(std::string l_type, std::string l_id) {
         // resource exists
+        std::cout << "Enter" << std::endl;
+
         auto resourcePair = findResource(l_type, l_id);
+        std::cout << "a" << std::endl;
         if (resourcePair) {
             ++resourcePair->second;
             return true;
+
+            std::cout << "b" << std::endl;
         }
 
         // load resource
         Object* resource = nullptr;
         try {
+            std::cout << "c" << std::endl;
             resource = m_loader.loadResource(l_type, l_id);
+            std::cout << "d" << std::endl;
         } catch (std::exception& e) {
+
+            std::cout << "This did work" << std::endl;
+
             return false;
         }
 
         m_resources[l_type].emplace(l_id, std::make_pair(resource, 1));
+        std::cout << "e" << std::endl;
         return true;
     }
 

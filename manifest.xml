@@ -1,8 +1,18 @@
 <manifest>
 	<!-- TEXTURES -->
-	<resource>
+	<resource>		
 		<type>texture</type>
 		<base>Assets/Textures/</base>				
+		
+		
+		<item>
+			<id>splashscreen.png</id>
+			<data>
+				<path>splashscreen.png</path>
+			</data>
+		</item>		
+		
+		
 		<item>
 			<id>walk_cycle.png</id>
 			<data>

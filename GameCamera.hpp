@@ -9,8 +9,8 @@
 //****************
 enum class ViewPortStateID
 {
-    ACTIVE_GREEN,
     ACTIVE_RED,
+    ACTIVE_GREEN,
     ACTIVE_BLUE,
     ACTIVE_START
 };
@@ -20,8 +20,8 @@ enum class ViewPortStateID
 //***********
 enum class ViewPortID
 {
-    GREEN,
     RED,
+    GREEN,
     BLUE
 };
 
@@ -35,17 +35,21 @@ private:
 
     std::map<ViewPortStateID, std::vector<int>> m_sliders;
     std::map<ViewPortID, sf::View> m_views;
+    std::map<ViewPortID, sf::RectangleShape> m_borders;
     ViewPortStateID m_currentState;
     int m_currentSlider1;
     int m_currentSlider2;
     float m_duration;
     Tween m_slider1;
     Tween m_slider2;
+    sf::View m_hud;
+    float m_dullColor;
 
 public:
     GameCamera(SharedContext* l_context, float l_scaleRatio, float l_duration):
     m_context(l_context),
-    m_duration(l_duration)
+    m_duration(l_duration),
+    m_dullColor(0.7f)
     {
         int portWidth = l_context->m_wind->GetWindowSize().x / 3.f;
         int expand = portWidth * l_scaleRatio;
@@ -65,15 +69,19 @@ public:
         m_views[ViewPortID::GREEN] = sf::View();
         m_views[ViewPortID::BLUE] = sf::View();
 
+        // Init borders
+        sf::RectangleShape border;
+        border.setOutlineThickness(-3);
+        border.setFillColor(sf::Color::Transparent);
+
+        m_borders[ViewPortID::RED] = border;
+        m_borders[ViewPortID::GREEN] = border;
+        m_borders[ViewPortID::BLUE] = border;
+
         // Init sliders
         m_slider1.reset(portWidth, portWidth, 1.0f);
         m_slider2.reset(2*portWidth, 2*portWidth, 1.0f);
         updateViewPorts();
-    }
-
-    void update(float dt)
-    {
-
     }
 
     bool isExpanding() { return m_slider1.isFinished() && m_slider2.isFinished(); }
@@ -82,9 +90,9 @@ public:
     {
         if (isExpanding())
         {
+            updateViewPorts();
             m_slider1.update(dt);
             m_slider2.update(dt);
-            updateViewPorts();
         }
     }
 
@@ -104,11 +112,31 @@ public:
     // Getters
     sf::View& getView(int id)
     {
-        //std::cout << "called: " << id << std::endl;
         return m_views[(ViewPortID)id];
     }
 
+    void drawBorders(sf::RenderWindow& window)
+    {
+        sf::View temp = window.getView();
+        window.setView(window.getDefaultView());
+
+        window.draw(m_borders[ViewPortID::RED]);
+        window.draw(m_borders[ViewPortID::BLUE]);
+        window.draw(m_borders[ViewPortID::GREEN]);
+
+        window.setView(temp);
+    }
+
 private:
+    sf::Color dullCOlor(sf::Color source, float value)
+    {
+        source.r = source.r * value;
+        source.g = source.g * value;
+        source.b = source.b * value;
+
+        return source;
+    }
+
     void updateViewPorts()
     {
         updateViewPort0();
@@ -119,6 +147,7 @@ private:
     void updateViewPort0() // RED
     {
         sf::View& view = m_views[ViewPortID::RED];
+        sf::RectangleShape& border = m_borders[ViewPortID::RED];
 
         float winWidth = m_context->m_wind->GetWindowSize().x;
         float winHeight = m_context->m_wind->GetWindowSize().y;
@@ -133,11 +162,24 @@ private:
         sf::FloatRect port(l, t, w, h);
 
         view.setViewport(port);
+        view.setSize(w * winWidth, h * winHeight);
+        view.setCenter(0, 0);
+
+        border.setSize(view.getSize());
+        border.setPosition(l * winWidth, t * winHeight);
+
+        sf::Color borderColor = sf::Color::Red;
+        if (m_currentState != ViewPortStateID::ACTIVE_RED || m_currentState == ViewPortStateID::ACTIVE_START)
+        {
+            borderColor = dullCOlor(borderColor, m_dullColor);
+        }
+        border.setOutlineColor(borderColor);
     }
 
-    void updateViewPort1() // GREEN
+    void updateViewPort1() // GREEN (FIX)
     {
-        sf::View view = m_views[ViewPortID::GREEN];
+        sf::View& view = m_views[ViewPortID::GREEN];
+        sf::RectangleShape& border = m_borders[ViewPortID::GREEN];
 
         float winWidth = m_context->m_wind->GetWindowSize().x;
         float winHeight = m_context->m_wind->GetWindowSize().y;
@@ -152,13 +194,24 @@ private:
         sf::FloatRect port(l, t, w, h);
 
         view.setViewport(port);
+        view.setSize(w * winWidth, h * winHeight);
+        view.setCenter(0, 0);
 
-        m_views[ViewPortID::GREEN] = view;
+        border.setSize(view.getSize());
+        border.setPosition(l * winWidth, t * winHeight);
+
+        sf::Color borderColor = sf::Color::Green;
+        if (m_currentState != ViewPortStateID::ACTIVE_RED || m_currentState == ViewPortStateID::ACTIVE_START)
+        {
+            borderColor = dullCOlor(borderColor, m_dullColor);
+        }
+        border.setOutlineColor(borderColor);
     }
 
     void updateViewPort2() // BLUE
     {
         sf::View& view = m_views[ViewPortID::BLUE];
+        sf::RectangleShape& border = m_borders[ViewPortID::BLUE];
 
         float winWidth = m_context->m_wind->GetWindowSize().x;
         float winHeight = m_context->m_wind->GetWindowSize().y;
@@ -173,6 +226,18 @@ private:
         sf::FloatRect port(l, t, w, h);
 
         view.setViewport(port);
+        view.setSize(w * winWidth, h * winHeight);
+        view.setCenter(0, 0);
+
+        border.setSize(view.getSize());
+        border.setPosition(l * winWidth, t * winHeight);
+
+        sf::Color borderColor = sf::Color::Blue;
+        if (m_currentState != ViewPortStateID::ACTIVE_RED || m_currentState == ViewPortStateID::ACTIVE_START)
+        {
+            borderColor = dullCOlor(borderColor, m_dullColor);
+        }
+        border.setOutlineColor(borderColor);
     }
 };
 
