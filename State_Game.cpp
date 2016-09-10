@@ -12,17 +12,14 @@ State_Game::~State_Game(){}
 
 void State_Game::OnCreate()
 {
-    /*
     std::vector<std::pair<std::string, Object*>> wake_up
     {
         {
             std::make_pair(AddNPCAction::getID(),
-                new AddNPCAction::Params("hero", 11, 3, -1))
+                new AddNPCAction::Params("hero", 1, 2, -1))
         }
     };
-    */
-
-    std::vector<std::pair<std::string, Object*>> wake_up;
+    //std::vector<std::pair<std::string, Object*>> wake_up;
     m_map = new Map(wake_up, Utils::GetWorkingDirectory() + "Assets/Maps/pacmanfusion.tmx");
 }
 
