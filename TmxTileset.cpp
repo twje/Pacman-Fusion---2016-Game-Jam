@@ -201,7 +201,7 @@ namespace Tmx
 
     sf::Texture* Tileset::getTexture() { return &image->getTexture(); }
 
-    sf::VertexArray* Tileset::getVertexArray(int index, int x, int y)
+    sf::VertexArray* Tileset::getVertexArray(int index, int x, int y, int posX, int posY)
     {
         auto it = std::find_if(tiles.begin(), tiles.end(), [index](Tmx::Tile* tile)->bool
         {
@@ -226,10 +226,12 @@ namespace Tmx
         m_quad[2].texCoords = sf::Vector2f(r-.5f, b-.5f);
         m_quad[3].texCoords = sf::Vector2f(l+.5f, b-.5f);
 
-        m_quad[0].position = sf::Vector2f(x * tile_width, y * tile_height);
-        m_quad[1].position = sf::Vector2f(x * tile_width + tile_width, y * tile_height);
-        m_quad[2].position = sf::Vector2f(x * tile_width + tile_height, y * tile_height + tile_height);
-        m_quad[3].position = sf::Vector2f(x * tile_width, y * tile_height + tile_height);
+        sf::Vector2f position(posX, posY);
+
+        m_quad[0].position = position + sf::Vector2f(x * tile_width, y * tile_height);
+        m_quad[1].position = position + sf::Vector2f(x * tile_width + tile_width, y * tile_height);
+        m_quad[2].position = position + sf::Vector2f(x * tile_width + tile_height, y * tile_height + tile_height);
+        m_quad[3].position = position + sf::Vector2f(x * tile_width, y * tile_height + tile_height);
 
         return &m_quad;
     }

@@ -1872,7 +1872,7 @@
 1471764518 c:\users\thomas\desktop\jam\common.hpp
 	<string>
 
-1473497185 c:\users\thomas\desktop\jam\map.hpp
+1473508430 c:\users\thomas\desktop\jam\map.hpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	<list>
@@ -1907,7 +1907,7 @@
 	"TmxPropertySet.h"
 	"TmxMapTile.h"
 
-1471148390 c:\users\thomas\desktop\jam\tmxtileset.h
+1473508151 c:\users\thomas\desktop\jam\tmxtileset.h
 	<SFML/Graphics.hpp>
 	<string>
 	<vector>
@@ -1925,7 +1925,7 @@
 	"IAction.hpp"
 	"Common.hpp"
 
-1471683739 c:\users\thomas\desktop\jam\character.hpp
+1473509208 c:\users\thomas\desktop\jam\character.hpp
 	"StateMachine.hpp"
 	"Entity.hpp"
 
@@ -1933,7 +1933,7 @@
 	<SFML/Graphics.hpp>
 	<memory>
 
-1471685250 c:\users\thomas\desktop\jam\entity.hpp
+1473510033 c:\users\thomas\desktop\jam\entity.hpp
 	<SFML/Graphics.hpp>
 	"ResourceManager.hpp"
 	"ResourceFactory.hpp"
@@ -2200,11 +2200,11 @@
 	<memory>
 	"ResourceManager.hpp"
 
-1471432945 source:c:\users\thomas\desktop\jam\map.cpp
+1473498868 source:c:\users\thomas\desktop\jam\map.cpp
 	"Map.hpp"
 	"TmxTileset.h"
 
-1471685730 source:c:\users\thomas\desktop\jam\movestate.cpp
+1473501452 source:c:\users\thomas\desktop\jam\movestate.cpp
 	"MoveState.hpp"
 	"Character.hpp"
 	"Map.hpp"
@@ -2495,7 +2495,7 @@
 1468748126 c:\users\thomas\desktop\jam\tmxtileoffset.h
 	<string>
 
-1471148379 source:c:\users\thomas\desktop\jam\tmxtileset.cpp
+1473508224 source:c:\users\thomas\desktop\jam\tmxtileset.cpp
 	"tinyxml2.h"
 	"TmxTileset.h"
 	"TmxTileOffset.h"
@@ -2528,7 +2528,7 @@
 1473476826 source:c:\users\thomas\desktop\jam\window.cpp
 	"Window.h"
 
-1473498266 source:c:\users\thomas\desktop\jam\state_game.cpp
+1473509368 source:c:\users\thomas\desktop\jam\state_game.cpp
 	"Sate_Game.hpp"
 	"StateManager.h"
 	"Utilities.h"
@@ -2540,7 +2540,7 @@
 	"GameCamera.hpp"
 	"Map.hpp"
 
-1473497496 c:\users\thomas\desktop\jam\gamecamera.hpp
+1473508983 c:\users\thomas\desktop\jam\gamecamera.hpp
 	<iostream>
 	"SharedContext.h"
 	"Tween.hpp"

@@ -16,7 +16,7 @@ void State_Game::OnCreate()
     {
         {
             std::make_pair(AddNPCAction::getID(),
-                new AddNPCAction::Params("hero", 1, 2, -1))
+                new AddNPCAction::Params("red_pacman", 0, 0, -1))
         }
     };
     //std::vector<std::pair<std::string, Object*>> wake_up;
@@ -52,6 +52,15 @@ void State_Game::Draw()
 
 void State_Game::Update(const sf::Time& l_dT)
 {
+    // Update
+    for(Character* character : m_map->getEntities())
+    {
+        if (character->getId() == "red_pacman")
+        {
+            //m_camera.setViewPortState(ViewPortID::RED, character)
+        }
+        character->getController()->update(l_dT.asSeconds());
+    }
     m_camera.update(l_dT.asSeconds());
 }
 

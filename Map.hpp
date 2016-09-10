@@ -29,9 +29,11 @@ private:
     int m_yTiles;
     int m_blockingTile;
     ActionFactory m_factory;
+    sf::Vector2f m_position;
 
 public:
-    Map(std::vector<std::pair<std::string, Object*>> &l_wakeup, std::string l_path)
+    Map(std::vector<std::pair<std::string, Object*>> &l_wakeup, std::string l_path):
+    m_position(0, 0)
     {
         m_map = new Tmx::Map();
         //m_map->ParseFile("C:/Users/Thomas/Desktop/How to Make an RPG/example_1_explore/examples_explore/npc-4-solution/small_room.tmx");
@@ -55,6 +57,12 @@ public:
                 m_blockingTile = tileset->GetFirstGid();
             }
         }
+    }
+
+    void setPosition(float posX, float posY)
+    {
+        m_position.x = posX;
+        m_position.y = posY;
     }
 
     std::list<Character*>& getEntities()
@@ -150,6 +158,8 @@ public:
     {
         int collisionLayer = layer * 3 + 2;
 
+
+
         return m_blockingTile == getTileGid(tileX, tileY, collisionLayer);
     }
 
@@ -179,7 +189,7 @@ private:
         Tmx::Tileset* tileset = getTileTileSet(x, y, layer);
         sf::Texture* texture = tileset->getTexture();
 
-        sf::VertexArray* quads = tileset->getVertexArray(id, x, y);
+        sf::VertexArray* quads = tileset->getVertexArray(id, x, y, m_position.x, m_position.y);
 
         window.draw(*quads, texture);
     }

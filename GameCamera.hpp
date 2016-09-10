@@ -116,6 +116,12 @@ public:
         m_currentSlider2 = m_sliders[l_stateId][1];
     }
 
+    void setViewPosition(ViewPortID id, sf::Vector2f position)
+    {
+        sf::View& view = m_views[id];
+        view.setCenter(position);
+    }
+
     // Getters
     sf::View& getView(int id)
     {

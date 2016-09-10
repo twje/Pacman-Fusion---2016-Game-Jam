@@ -92,7 +92,7 @@ namespace Tmx
 
         sf::Texture* getTexture();
 
-        sf::VertexArray* getVertexArray(int index, int x, int y);
+        sf::VertexArray* getVertexArray(int index, int x, int y, int posX, int posY);
 
         void update(sf::Time& dt);
 

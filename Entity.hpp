@@ -16,6 +16,7 @@ class Entity
 {
 private:
     std::unique_ptr<EntityPOJO> m_pojo;
+    sf::Vector2f m_position;
     sf::Sprite m_sprite;
 
 public:
@@ -69,6 +70,11 @@ public:
         sf::IntRect region(l, t, r - l, b - t);
         m_sprite.setTextureRect(region);
     }
+
+
+
+    //sf::Vector2f getPositon(){ return m_position; }
+    //sf::Vector2f setPositon(){ return m_position; }
 };
 
 #endif // _ENTITY_

@@ -14,7 +14,7 @@ m_moveSpeed(0.2),
 m_tween(0, 0, 1),
 m_pixelX(0),
 m_pixelY(0),
-m_anim({l_character->getEntity()->getStartFrame()}, true, 0.12f)
+m_anim({l_character->getEntity()->getStartFrame()}, true, 0.05f)
 {}
 
 void MoveState::postInit(int l_x, int l_y)
@@ -61,7 +61,6 @@ void MoveState::enter()
 void MoveState::exit()
 {
     // triiger code
-
     m_entity->setTilePos(m_entity->getTileX() + m_moveX, m_entity->getTileY() + m_moveY, m_entity->getLayer(), m_map);
 
     // On enter triger

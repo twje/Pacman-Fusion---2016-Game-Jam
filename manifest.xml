@@ -55,7 +55,7 @@
 				<texture>pmblue.png</texture>
 				<width>32</width>
 				<height>32</height>
-				<startFrame>9</startFrame>
+				<startFrame>1</startFrame>
 				<tileX>11</tileX>
 				<tileY>3</tileY>
 				<layer>0</layer>
@@ -75,19 +75,19 @@
 				<anims>
 					<sequence>
 						<id>up</id>
-						<frames>1 2 3 4</frames>						
+						<frames>1</frames>						
 					</sequence>
 					<sequence>
 						<id>right</id>
-						<frames>5 6 7 8</frames>						
+						<frames>1</frames>						
 					</sequence>
 					<sequence>
 						<id>down</id>
-						<frames>9 10 11 12</frames>						
+						<frames>1</frames>						
 					</sequence>
 					<sequence>
 						<id>left</id>
-						<frames>13 14 15 16</frames>						
+						<frames>1</frames>						
 					</sequence>
 				</anims>				
 				<controllers>
@@ -114,25 +114,25 @@
 		
 		<!-- HERO -->
 		<item>
-			<id>hero</id>
+			<id>red_pacman</id>
 			<data>
 				<entity>hero</entity>
 				<anims>
 					<sequence>
 						<id>up</id>
-						<frames>1 2 3 4</frames>						
+						<frames>1 2 3 4 5 6 7 8</frames>						
 					</sequence>
 					<sequence>
 						<id>right</id>
-						<frames>5 6 7 8</frames>						
+						<frames>1 2 3 4 5 6 7 8</frames>						
 					</sequence>
 					<sequence>
 						<id>down</id>
-						<frames>9 10 11 12</frames>						
+						<frames>1 2 3 4 5 6 7 8</frames>						
 					</sequence>
 					<sequence>
 						<id>left</id>
-						<frames>13 14 15 16</frames>						
+						<frames>1 2 3 4 5 6 7 8</frames>						
 					</sequence>
 				</anims>				
 				<controllers>
