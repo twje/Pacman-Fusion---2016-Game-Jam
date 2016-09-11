@@ -15,3 +15,6 @@ Player_MoveRight 24:3
 Player_MoveUp 24:22
 Player_MoveDown 24:18
 Player_Attack 24:58
+ACTIVATE_GREEN_PORT 5:6
+ACTIVATE_RED_PORT 5:17
+ACTIVATE_BLUE_PORT 5:1

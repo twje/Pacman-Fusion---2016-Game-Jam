@@ -16,11 +16,12 @@ class Entity
 {
 private:
     std::unique_ptr<EntityPOJO> m_pojo;
-    sf::Vector2f m_position;
+    sf::Vector2f m_worldPos;
     sf::Sprite m_sprite;
 
 public:
-    Entity(std::string l_id)
+    Entity(std::string l_id):
+    m_worldPos(0, 0)
     {
         m_pojo.reset(ResourceFactory::getEntityPojo(l_id));
 
@@ -50,6 +51,8 @@ public:
     int getStartFrame() { return m_pojo.get()->m_startFrame; }
     sf::Sprite& getSprite(){ return m_sprite; }
 
+    std::string getId(){ return m_pojo.get()->m_id; }
+
     // Setters
     void setTilePos(int x, int y, int layer, Map* l_map);
 
@@ -71,10 +74,9 @@ public:
         m_sprite.setTextureRect(region);
     }
 
+    sf::Vector2f getWorldPositon(){ return m_worldPos; }
 
-
-    //sf::Vector2f getPositon(){ return m_position; }
-    //sf::Vector2f setPositon(){ return m_position; }
+    void setWorldPositon(sf::Vector2f position){ m_worldPos = position; }
 };
 
 #endif // _ENTITY_

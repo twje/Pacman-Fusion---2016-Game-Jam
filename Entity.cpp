@@ -1,5 +1,6 @@
 #include "Entity.hpp"
 #include "Map.hpp"
+#include "Common.hpp"
 
 void Entity::setTilePos(int x, int y, int layer, Map* l_map)
 {
@@ -24,5 +25,18 @@ void Entity::setTilePos(int x, int y, int layer, Map* l_map)
 
     int xPos = tileFoot.x - m_pojo.get()->m_width/2;
     int yPos = tileFoot.y - m_pojo.get()->m_height;
+
     m_sprite.setPosition(xPos, yPos);
+
+    /*
+    if (isPacman(getId()))
+    {
+        setWorldPositon(sf::Vector2f(xPos, yPos));
+        m_sprite.setPosition(xPos, yPos);
+    }
+    else
+    {
+        m_sprite.setPosition(xPos, yPos);
+    }
+    */
 }

@@ -176,7 +176,6 @@ private:
 
         view.setViewport(port);
         view.setSize(w * winWidth, h * winHeight);
-        view.setCenter(0, 0);
 
         border.setSize(view.getSize());
         border.setPosition(l * winWidth, t * winHeight);
@@ -208,7 +207,6 @@ private:
 
         view.setViewport(port);
         view.setSize(w * winWidth, h * winHeight);
-        view.setCenter(0, 0);
 
         border.setSize(view.getSize());
         border.setPosition(l * winWidth, t * winHeight);
@@ -240,7 +238,6 @@ private:
 
         view.setViewport(port);
         view.setSize(w * winWidth, h * winHeight);
-        view.setCenter(0, 0);
 
         border.setSize(view.getSize());
         border.setPosition(l * winWidth, t * winHeight);

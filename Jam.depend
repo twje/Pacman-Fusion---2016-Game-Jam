@@ -1869,10 +1869,11 @@
 1471654274 c:\users\thomas\desktop\jam\iaction.hpp
 	<memory>
 
-1471764518 c:\users\thomas\desktop\jam\common.hpp
+1473512052 c:\users\thomas\desktop\jam\common.hpp
+	<iostream>
 	<string>
 
-1473508430 c:\users\thomas\desktop\jam\map.hpp
+1473511822 c:\users\thomas\desktop\jam\map.hpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	<list>
@@ -1925,7 +1926,7 @@
 	"IAction.hpp"
 	"Common.hpp"
 
-1473509208 c:\users\thomas\desktop\jam\character.hpp
+1473511572 c:\users\thomas\desktop\jam\character.hpp
 	"StateMachine.hpp"
 	"Entity.hpp"
 
@@ -1933,7 +1934,7 @@
 	<SFML/Graphics.hpp>
 	<memory>
 
-1473510033 c:\users\thomas\desktop\jam\entity.hpp
+1473550432 c:\users\thomas\desktop\jam\entity.hpp
 	<SFML/Graphics.hpp>
 	"ResourceManager.hpp"
 	"ResourceFactory.hpp"
@@ -2003,9 +2004,10 @@
 	<stdexcept>
 	<string>
 
-1471652825 source:c:\users\thomas\desktop\jam\entity.cpp
+1473551006 source:c:\users\thomas\desktop\jam\entity.cpp
 	"Entity.hpp"
 	"Map.hpp"
+	"Common.hpp"
 
 1471076564 source:c:\users\thomas\desktop\jam\entityloader.cpp
 	"tinyxml2.h"
@@ -2025,7 +2027,7 @@
 	"ResourceManager.hpp"
 	"POJO.hpp"
 
-1473454761 c:\users\thomas\desktop\jam\eventmanager.h
+1473553113 c:\users\thomas\desktop\jam\eventmanager.h
 	<SFML/Window.hpp>
 	<SFML/Graphics.hpp>
 	<vector>
@@ -2186,7 +2188,7 @@
 	"Utilities.h"
 	<SFML/Graphics.hpp>
 
-1473477953 source:c:\users\thomas\desktop\jam\main.cpp
+1473552811 source:c:\users\thomas\desktop\jam\main.cpp
 	"Game.h"
 	"WidgetImp.hpp"
 	<SFML/Graphics.hpp>
@@ -2204,10 +2206,11 @@
 	"Map.hpp"
 	"TmxTileset.h"
 
-1473501452 source:c:\users\thomas\desktop\jam\movestate.cpp
+1473551038 source:c:\users\thomas\desktop\jam\movestate.cpp
 	"MoveState.hpp"
 	"Character.hpp"
 	"Map.hpp"
+	"Common.hpp"
 
 1471668258 c:\users\thomas\desktop\jam\movestate.hpp
 	"Animation.hpp"
@@ -2525,22 +2528,22 @@
 	"Entity.hpp"
 	"MoveState.hpp"
 
-1473476826 source:c:\users\thomas\desktop\jam\window.cpp
+1473552514 source:c:\users\thomas\desktop\jam\window.cpp
 	"Window.h"
 
-1473509368 source:c:\users\thomas\desktop\jam\state_game.cpp
+1473553316 source:c:\users\thomas\desktop\jam\state_game.cpp
 	"Sate_Game.hpp"
 	"StateManager.h"
 	"Utilities.h"
 
-1473496738 c:\users\thomas\desktop\jam\sate_game.hpp
+1473552345 c:\users\thomas\desktop\jam\sate_game.hpp
 	"BaseState.h"
 	<SFML/Graphics.hpp>
 	"EventManager.h"
 	"GameCamera.hpp"
 	"Map.hpp"
 
-1473508983 c:\users\thomas\desktop\jam\gamecamera.hpp
+1473550827 c:\users\thomas\desktop\jam\gamecamera.hpp
 	<iostream>
 	"SharedContext.h"
 	"Tween.hpp"

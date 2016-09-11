@@ -10,7 +10,8 @@
 #include <iostream>
 #include "Utilities.h"
 
-enum class EventType{ KeyDown = sf::Event::KeyPressed,
+enum class EventType{
+    KeyDown = sf::Event::KeyPressed,
 	KeyUp = sf::Event::KeyReleased,
 	MButtonDown = sf::Event::MouseButtonPressed,
 	MButtonUp = sf::Event::MouseButtonReleased,

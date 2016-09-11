@@ -46,6 +46,8 @@ public:
             }
         }
     }
+
+
 };
 
 
@@ -67,5 +69,10 @@ public:
 
 	void Update(const sf::Time& l_time);
 	void Draw();
+
+private:
+    void activateBluePort(EventDetails* l_details);
+    void activateRedPort(EventDetails* l_details);
+    void activateGreenPort(EventDetails* l_details);
 };
 

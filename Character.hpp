@@ -30,7 +30,7 @@ public:
         m_controller.change(m_pojo.get()->m_state);
     }
 
-    std::string getId(){ m_pojo.get()->m_id; }
+    std::string getId(){ return m_pojo.get()->m_id; }
 
     // Getters
     Entity* getEntity(){ return m_entity.get(); }

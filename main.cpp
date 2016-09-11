@@ -12,6 +12,10 @@
 
 int main(int argc, void** argv[]) {
 
+    std::cout << sf::Keyboard::G << std::endl;
+    std::cout << sf::Keyboard::R << std::endl;
+    std::cout << sf::Keyboard::B << std::endl;
+
     Game game;
     while(!game.GetWindow()->IsDone()){
         game.Update();

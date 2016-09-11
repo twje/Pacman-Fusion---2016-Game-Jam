@@ -1,6 +1,7 @@
 #include "MoveState.hpp"
 #include "Character.hpp"
 #include "Map.hpp"
+#include "Common.hpp"
 
 MoveState::MoveState(Character* l_character, Map* l_map):
 IState(l_character, l_map),
@@ -39,7 +40,20 @@ void MoveState::enter()
         m_character->setFacing("down");
     }
 
-    sf::Vector2f pixelPos = m_entity->getSprite().getPosition();
+    sf::Vector2f pixelPos(0, 0);
+    pixelPos = m_entity->getSprite().getPosition();
+
+    /*
+    if (isPacman(m_character->getEntity()->getId()))
+    {
+        pixelPos = m_character->getEntity()->getWorldPositon();
+    }
+    else
+    {
+        pixelPos = m_entity->getSprite().getPosition();
+    }
+    */
+
     m_pixelX = pixelPos.x;
     m_pixelY = pixelPos.y;
     m_tween.reset(0, m_tileWidth, m_moveSpeed);
@@ -78,7 +92,18 @@ void MoveState::update(float dt)
     float x = m_pixelX + value * (float)m_moveX;
     float y = m_pixelY + value * (float)m_moveY;
 
-    m_entity->getSprite().setPosition(std::floor(x), std::floor(y));
+    /*
+    if (isPacman(m_character->getEntity()->getId()))
+    {
+        m_character->getEntity()->setWorldPositon(sf::Vector2f(std::floor(x), std::floor(y)));
+    }
+    else
+    {
+        m_entity->getSprite().setPosition(sf::Vector2f(std::floor(x), std::floor(y)));
+    }
+    */
+
+    m_entity->getSprite().setPosition(sf::Vector2f(std::floor(x), std::floor(y)));
 
     if (m_tween.isFinished()) {
         StateMachine* controller = m_character->getController();

@@ -1,6 +1,7 @@
 #ifndef _COMMON_
 #define _COMMON_
 
+#include <iostream>
 #include <string>
 
 //*******
@@ -40,5 +41,22 @@ struct TupleInt4
     int m_top;
     int m_bottom;
 };
+
+//*********
+// PacmanID
+//*********
+const std::string RED_PACMAN = "red_pacman";
+const std::string BLUE_PACMAN = "blue_pacman";
+const std::string GREEN_PACMAN = "green_pacman";
+
+inline bool isPacman(std::string l_characterId)
+{
+    bool result = false;
+    result |= (l_characterId == RED_PACMAN);
+    result |= (l_characterId == BLUE_PACMAN);
+    result |= (l_characterId == GREEN_PACMAN);
+
+    return result;
+}
 
 #endif // _COMMON_

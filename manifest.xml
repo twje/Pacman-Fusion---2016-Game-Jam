@@ -14,7 +14,19 @@
 			<data>
 				<path>pmblue.png</path>
 			</data>
-		</item>			
+		</item>	
+		<item>
+			<id>pmred.png</id>
+			<data>
+				<path>pmred.png</path>
+			</data>
+		</item>	
+		<item>
+			<id>pmgreen.png</id>
+			<data>
+				<path>pmgreen.png</path>
+			</data>
+		</item>
 	</resource>
 	
 	<!-- FONTS -->
@@ -60,7 +72,43 @@
 				<tileY>3</tileY>
 				<layer>0</layer>
 			</data>
-		</item>		
+		</item>	
+		<item>
+			<id>blue_pacman</id>
+			<data>
+				<texture>pmblue.png</texture>
+				<width>32</width>
+				<height>32</height>
+				<startFrame>1</startFrame>
+				<tileX>11</tileX>
+				<tileY>3</tileY>
+				<layer>0</layer>
+			</data>
+		</item>	
+		<item>
+			<id>red_pacman</id>
+			<data>
+				<texture>pmred.png</texture>
+				<width>32</width>
+				<height>32</height>
+				<startFrame>1</startFrame>
+				<tileX>11</tileX>
+				<tileY>3</tileY>
+				<layer>0</layer>
+			</data>
+		</item>						
+		<item>
+			<id>green_pacman</id>
+			<data>
+				<texture>pmgreen.png</texture>
+				<width>32</width>
+				<height>32</height>
+				<startFrame>1</startFrame>
+				<tileX>11</tileX>
+				<tileY>3</tileY>
+				<layer>0</layer>
+			</data>
+		</item>								
 	</resource>
 	
 	<!-- CHARACTERS -->
@@ -114,9 +162,9 @@
 		
 		<!-- HERO -->
 		<item>
-			<id>red_pacman</id>
+			<id>blue_pacman</id>
 			<data>
-				<entity>hero</entity>
+				<entity>blue_pacman</entity>
 				<anims>
 					<sequence>
 						<id>up</id>
@@ -142,7 +190,67 @@
 				<state>wait</state>
 				<facing>down</facing>
 			</data>
-		</item>				
+		</item>	
+		<item>
+			<id>green_pacman</id>
+			<data>
+				<entity>green_pacman</entity>
+				<anims>
+					<sequence>
+						<id>up</id>
+						<frames>1 2 3 4 5 6 7 8</frames>						
+					</sequence>
+					<sequence>
+						<id>right</id>
+						<frames>1 2 3 4 5 6 7 8</frames>						
+					</sequence>
+					<sequence>
+						<id>down</id>
+						<frames>1 2 3 4 5 6 7 8</frames>						
+					</sequence>
+					<sequence>
+						<id>left</id>
+						<frames>1 2 3 4 5 6 7 8</frames>						
+					</sequence>
+				</anims>				
+				<controllers>
+					<controller>wait</controller>
+					<controller>move</controller>
+				</controllers>
+				<state>wait</state>
+				<facing>down</facing>
+			</data>
+		</item>
+		<item>
+			<id>red_pacman</id>
+			<data>
+				<entity>red_pacman</entity>
+				<anims>
+					<sequence>
+						<id>up</id>
+						<frames>1 2 3 4 5 6 7 8</frames>						
+					</sequence>
+					<sequence>
+						<id>right</id>
+						<frames>1 2 3 4 5 6 7 8</frames>						
+					</sequence>
+					<sequence>
+						<id>down</id>
+						<frames>1 2 3 4 5 6 7 8</frames>						
+					</sequence>
+					<sequence>
+						<id>left</id>
+						<frames>1 2 3 4 5 6 7 8</frames>						
+					</sequence>
+				</anims>				
+				<controllers>
+					<controller>wait</controller>
+					<controller>move</controller>
+				</controllers>
+				<state>wait</state>
+				<facing>down</facing>
+			</data>
+		</item>	
 	</resource>
 	
 </manifest>

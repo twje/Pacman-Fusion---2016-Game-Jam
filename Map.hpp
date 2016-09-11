@@ -173,6 +173,11 @@ public:
         return m_map->GetTileWidth();
     }
 
+    int getTileHeight()
+    {
+        return m_map->GetTileHeight();
+    }
+
     int coordToIndex(int x, int y)
     {
         return x + y * m_xTiles;
