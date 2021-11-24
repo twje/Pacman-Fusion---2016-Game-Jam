@@ -4,6 +4,8 @@
 #include "Map.hpp"
 #include "Entity.hpp"
 #include "MoveState.hpp"
+#include "Common.hpp"
+#include "Identifiers.hpp"
 
 WaitState::WaitState(Character* l_character, Map* l_map):
 IState(l_character, l_map),
@@ -25,6 +27,15 @@ void WaitState::update(float dt)
             m_entity->setFrame(m_entity->getStartFrame());
             m_character->setFacing("down");
         }
+    }
+
+    // Only move active pacman to move
+    std::string entityId = m_character->getEntity()->getId();
+    if (isPacman(entityId))
+    {
+        if (m_map->getContext()->m_viewPortStateID == ViewPortStateID::ACTIVE_RED && entityId != RED_PACMAN){ return; }
+        if (m_map->getContext()->m_viewPortStateID == ViewPortStateID::ACTIVE_BLUE && entityId != BLUE_PACMAN){ return; }
+        if (m_map->getContext()->m_viewPortStateID == ViewPortStateID::ACTIVE_GREEN && entityId != GREEN_PACMAN){ return; }
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {

@@ -46,10 +46,7 @@ public:
             }
         }
     }
-
-
 };
-
 
 class State_Game : public BaseState{
 private:

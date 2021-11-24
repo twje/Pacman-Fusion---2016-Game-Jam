@@ -59,6 +59,11 @@ void State_Splash::Update(const sf::Time& l_dT)
 {
     m_tween.update(l_dT.asSeconds());
     m_logo.setPosition(m_logo.getPosition().x, m_tween.value());
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && m_tween.isFinished())
+    {
+        GetStateManager()->SwitchTo(StateType::MainMenu);
+    }
 }
 
 void State_Splash::Deactivate(){}

@@ -2,8 +2,7 @@
 #include "Window.h"
 #include "EventManager.h"
 #include "DebugOverlay.h"
-
-//class Map;
+#include "Identifiers.hpp"
 
 struct SharedContext{
 	SharedContext():
@@ -14,6 +13,6 @@ struct SharedContext{
 
 	Window* m_wind;
 	EventManager* m_eventManager;
-	//Map* m_gameMap;
 	DebugOverlay m_debugOverlay;
+    ViewPortStateID m_viewPortStateID;
 };

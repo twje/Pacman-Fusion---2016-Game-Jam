@@ -3,63 +3,79 @@
 
 
 
-State_MainMenu::State_MainMenu(StateManager* l_stateManager)
-	: BaseState(l_stateManager){}
+State_MainMenu::State_MainMenu(StateManager* l_stateManager):
+BaseState(l_stateManager),
+m_manager(ResourceManager::getInstance()),
+m_playButtonId("playbutton.png"),
+m_storyButtonId("storybutton.png")
+{}
 
 State_MainMenu::~State_MainMenu(){}
 
-void State_MainMenu::OnCreate(){
-	//GUI_Manager* gui = m_stateMgr->GetContext()->m_guiManager;
-	//gui->LoadInterface(StateType::MainMenu, "TextBox.interface", "MainMenu");
-	//gui->GetInterface(StateType::MainMenu, "MainMenu")->SetPosition(sf::Vector2f(250.f, 168.f));
+void State_MainMenu::OnCreate()
+{
+    // Init textures
+    sf::Vector2f winSize = sf::Vector2f(GetStateManager()->GetContext()->m_wind->GetWindowSize());
+    if (!m_manager->requireResource(ResourceType::TEXTURE, m_playButtonId) )
+    {
+        throw std::logic_error("logic error - can't load asset: " + m_playButtonId);
+    }
+    if (!m_manager->requireResource(ResourceType::TEXTURE, m_storyButtonId) )
+    {
+        throw std::logic_error("logic error - can't load asset: " + m_storyButtonId);
+    }
+    sf::Texture* storyTex = m_manager->getResource<sf::Texture>(ResourceType::TEXTURE, m_storyButtonId);
+    sf::Texture* playTex = m_manager->getResource<sf::Texture>(ResourceType::TEXTURE, m_playButtonId);
 
-    //std::cout << "called" << std::endl;
+    m_storyButton.setTexture(*storyTex);
+    m_playButton.setTexture(*playTex);
 
-	/*
-	EventManager* eMgr = m_stateMgr->GetContext()->m_eventManager;
-	eMgr->AddCallback(StateType::MainMenu, "MainMenu_Play", &State_MainMenu::Play, this);
-	eMgr->AddCallback(StateType::MainMenu, "MainMenu_Quit", &State_MainMenu::Quit, this);
-	*/
+    m_storyButton.setOrigin(sf::Vector2f(storyTex->getSize()) * .5f);
+    m_playButton.setOrigin(sf::Vector2f(playTex->getSize()) * .5f);
 
-	//m_widget = new WindowWidget("Hello", new CurvedWidgetImp("simple_panel.png", 3));
+    // Set button position
+    int yOffset = winSize.y / 2.f;
+    int xOffset = winSize.x / 2.f;
+    int ySpace = 30 + playTex->getSize().y;
+
+    m_playButton.setPosition(xOffset, yOffset);
+    m_storyButton.setPosition(xOffset, yOffset + ySpace);
+
+    // Assing Callbacks
+    EventManager* manager = GetStateManager()->GetContext()->m_eventManager;
+    manager->AddCallback(StateType::MainMenu, "Mouse_Left", &State_MainMenu::mouseClick, this);
 }
 
 void State_MainMenu::OnDestroy(){
-	//m_stateMgr->GetContext()->m_guiManager->RemoveInterface(StateType::MainMenu, "MainMenu");
-	//EventManager* eMgr = m_stateMgr->GetContext()->m_eventManager;
-	//eMgr->RemoveCallback(StateType::MainMenu, "MainMenu_Play");
-	//eMgr->RemoveCallback(StateType::MainMenu, "MainMenu_Quit");
+
 }
 
 void State_MainMenu::Activate(){
-
-	/*
-	auto& play = *m_stateMgr->GetContext()->m_guiManager->
-		GetInterface(StateType::MainMenu, "MainMenu")->GetElement("Play");
-	if (m_stateMgr->HasState(StateType::Game)){
-		// Resume
-		play.SetText("Resume");
-	} else {
-		// Play
-		play.SetText("Play");
-	}
-	*/
 }
 
 void State_MainMenu::Play(EventDetails* l_details){ /*m_stateMgr->SwitchTo(StateType::Game);*/ }
 void State_MainMenu::Quit(EventDetails* l_details){ /*m_stateMgr->GetContext()->m_wind->Close();*/ }
 void State_MainMenu::Draw()
 {
+    sf::RenderWindow* window =  GetStateManager()->GetContext()->m_wind->GetRenderWindow();
 
-    // claim view
-
-    //
-
-    //sf::RenderWindow& window = *GetStateManager()->GetContext()->m_wind->GetRenderWindow();
-
-    // Draw using window
-
-    //m_widget->draw(window);
+    window->draw(m_playButton);
+    window->draw(m_storyButton);
 }
 void State_MainMenu::Update(const sf::Time& l_dT){}
 void State_MainMenu::Deactivate(){}
+
+void State_MainMenu::mouseClick(EventDetails* l_details)
+{
+    sf::Vector2f mousePos = GetStateManager()->GetContext()->m_wind->getMousePos();
+
+    // Navigate to level
+    if (m_playButton.getGlobalBounds().contains(mousePos))
+    {
+        GetStateManager()->SwitchTo(StateType::Game);
+    }
+    if (m_storyButton.getGlobalBounds().contains(mousePos))
+    {
+        GetStateManager()->SwitchTo(StateType::Story);
+    }
+}

@@ -12,6 +12,7 @@
 #include "Common.hpp"
 #include "Character.hpp"
 #include "Trigger.hpp"
+#include "SharedContext.h"
 
 //****
 // Map
@@ -19,6 +20,8 @@
 class Map
 {
 private:
+    SharedContext* m_context;
+
     std::map<int, std::map<int, Trigger*>> m_triggers;
     std::map<int, std::map<int, Entity*>> m_entities;
     std::list<Character*> m_npcs;
@@ -32,8 +35,9 @@ private:
     sf::Vector2f m_position;
 
 public:
-    Map(std::vector<std::pair<std::string, Object*>> &l_wakeup, std::string l_path):
-    m_position(0, 0)
+    Map(std::vector<std::pair<std::string, Object*>> &l_wakeup, std::string l_path, SharedContext* l_context):
+    m_position(0, 0),
+    m_context(l_context)
     {
         m_map = new Tmx::Map();
         //m_map->ParseFile("C:/Users/Thomas/Desktop/How to Make an RPG/example_1_explore/examples_explore/npc-4-solution/small_room.tmx");
@@ -58,6 +62,8 @@ public:
             }
         }
     }
+
+    SharedContext* getContext(){ return m_context; }
 
     void setPosition(float posX, float posY)
     {

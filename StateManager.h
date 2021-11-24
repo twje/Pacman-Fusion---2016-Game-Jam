@@ -6,7 +6,7 @@
 // forward declaration
 class BaseState;
 
-enum class StateType{ Intro = 1, MainMenu, Game, Paused, GameOver, Credits };
+enum class StateType{ Intro = 1, MainMenu, Game, Paused, GameOver, Credits, Story };
 
 // State container.
 using StateContainer = std::vector<std::pair<StateType, BaseState*>>;

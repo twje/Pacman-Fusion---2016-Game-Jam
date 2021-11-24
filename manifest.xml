@@ -8,7 +8,13 @@
 			<data>
 				<path>splashscreen.png</path>
 			</data>
-		</item>									
+		</item>		
+		<item>
+			<id>instructionpage.png</id>
+			<data>
+				<path>instructionpage.png</path>
+			</data>
+		</item>				
 		<item>
 			<id>pmblue.png</id>
 			<data>
@@ -27,6 +33,24 @@
 				<path>pmgreen.png</path>
 			</data>
 		</item>
+		<item>
+			<id>scroll.png</id>
+			<data>
+				<path>scroll.png</path>
+			</data>
+		</item>
+		<item>
+			<id>playbutton.png</id>
+			<data>
+				<path>playbutton.png</path>
+			</data>
+		</item>
+		<item>
+			<id>storybutton.png</id>
+			<data>
+				<path>storybutton.png</path>
+			</data>
+		</item>				
 	</resource>
 	
 	<!-- FONTS -->
@@ -168,7 +192,7 @@
 				<anims>
 					<sequence>
 						<id>up</id>
-						<frames>1 2 3 4 5 6 7 8</frames>						
+						<frames>17</frames>						
 					</sequence>
 					<sequence>
 						<id>right</id>
@@ -176,11 +200,11 @@
 					</sequence>
 					<sequence>
 						<id>down</id>
-						<frames>1 2 3 4 5 6 7 8</frames>						
+						<frames>18</frames>						
 					</sequence>
 					<sequence>
 						<id>left</id>
-						<frames>1 2 3 4 5 6 7 8</frames>						
+						<frames>9 10 11 12 13 14 15 16</frames>						
 					</sequence>
 				</anims>				
 				<controllers>
@@ -198,7 +222,7 @@
 				<anims>
 					<sequence>
 						<id>up</id>
-						<frames>1 2 3 4 5 6 7 8</frames>						
+						<frames>17</frames>						
 					</sequence>
 					<sequence>
 						<id>right</id>
@@ -206,11 +230,11 @@
 					</sequence>
 					<sequence>
 						<id>down</id>
-						<frames>1 2 3 4 5 6 7 8</frames>						
+						<frames>18</frames>						
 					</sequence>
 					<sequence>
 						<id>left</id>
-						<frames>1 2 3 4 5 6 7 8</frames>						
+						<frames>9 10 11 12 13 14 15 16</frames>						
 					</sequence>
 				</anims>				
 				<controllers>
@@ -228,7 +252,7 @@
 				<anims>
 					<sequence>
 						<id>up</id>
-						<frames>1 2 3 4 5 6 7 8</frames>						
+						<frames>17</frames>						
 					</sequence>
 					<sequence>
 						<id>right</id>
@@ -236,11 +260,11 @@
 					</sequence>
 					<sequence>
 						<id>down</id>
-						<frames>1 2 3 4 5 6 7 8</frames>						
+						<frames>18</frames>						
 					</sequence>
 					<sequence>
 						<id>left</id>
-						<frames>1 2 3 4 5 6 7 8</frames>						
+						<frames>9 10 11 12 13 14 15 16</frames>						
 					</sequence>
 				</anims>				
 				<controllers>

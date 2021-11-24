@@ -1,21 +1,22 @@
-#pragma once
+#ifndef _STATE_INSTRUCTIONS_
+#define _STATE_INSTRUCTIONS_
 
 #include <SFML/Graphics.hpp>
 #include "ResourceManager.hpp"
 #include "BaseState.h"
 #include "EventManager.h"
-#include "Tween.hpp"
 
-class State_Splash : public BaseState{
+class State_Instructions : public BaseState{
 private:
-    sf::Sprite m_logo;
     ResourceManager* m_manager;
-    Tween m_tween;
-    sf::Text m_text;
+    sf::Sprite m_sprite;
+
+    bool m_cntPress;
+    bool m_oldPress;
 
 public:
-	State_Splash(StateManager* l_stateManager);
-	~State_Splash();
+	State_Instructions(StateManager* l_stateManager);
+	~State_Instructions();
 
 	void OnCreate();
 	void OnDestroy();
@@ -26,3 +27,5 @@ public:
 	void Update(const sf::Time& l_time);
 	void Draw();
 };
+
+#endif // _STATE_INSTRUCTIONS_

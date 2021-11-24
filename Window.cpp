@@ -48,6 +48,11 @@ sf::FloatRect Window::GetViewSpace(){
 	return viewSpace;
 }
 
+sf::Vector2f Window::getMousePos()
+{
+    return sf::Vector2f(sf::Mouse::getPosition(m_window));
+}
+
 void Window::ToggleFullscreen(EventDetails* l_details) {
 	m_isFullscreen = !m_isFullscreen;
 	m_window.close();

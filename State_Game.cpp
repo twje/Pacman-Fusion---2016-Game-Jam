@@ -18,12 +18,12 @@ void State_Game::OnCreate()
             std::make_pair(AddNPCAction::getID(),
                 new AddNPCAction::Params("blue_pacman", 1, 1, -1)),
             std::make_pair(AddNPCAction::getID(),
-                new AddNPCAction::Params("red_pacman", 3, 3, -1)),
+                new AddNPCAction::Params("red_pacman", 4, 3, -1)),
             std::make_pair(AddNPCAction::getID(),
                 new AddNPCAction::Params("green_pacman", 1, 4, -1))
         }
     };
-    m_map = new Map(wake_up, Utils::GetWorkingDirectory() + "Assets/Maps/pacmanfusion.tmx");
+    m_map = new Map(wake_up, Utils::GetWorkingDirectory() + "Assets/Maps/pacmanfusion.tmx", GetStateManager()->GetContext());
 
 
     // Keybindings
@@ -81,6 +81,9 @@ void State_Game::Update(const sf::Time& l_dT)
         character->getController()->update(l_dT.asSeconds());
     }
     m_camera.update(l_dT.asSeconds());
+
+    // Update global state
+    GetStateManager()->GetContext()->m_viewPortStateID = m_camera.getViewPortStateId();
 }
 
 void State_Game::Deactivate(){}

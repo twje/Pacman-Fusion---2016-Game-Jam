@@ -10,7 +10,7 @@ m_stateManager(&m_context)
 	m_context.m_wind = &m_window;
 	m_context.m_eventManager = m_window.GetEventManager();
 
-	m_stateManager.SwitchTo(StateType::Game);
+	m_stateManager.SwitchTo(StateType::Intro);
 }
 
 Game::~Game(){}

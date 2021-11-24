@@ -3,27 +3,7 @@
 #include <iostream>
 #include "SharedContext.h"
 #include "Tween.hpp"
-
-//****************
-// ViewPortStateID
-//****************
-enum class ViewPortStateID
-{
-    ACTIVE_RED,
-    ACTIVE_GREEN,
-    ACTIVE_BLUE,
-    ACTIVE_START
-};
-
-//***********
-// ViewPortID
-//***********
-enum class ViewPortID
-{
-    RED,
-    GREEN,
-    BLUE
-};
+#include "Identifiers.hpp"
 
 //***********
 // GameCamera
@@ -87,6 +67,10 @@ public:
         m_slider2.reset(2*portWidth, 2*portWidth, m_expandDuration);
         updateViewPorts();
     }
+
+    SharedContext* getContext(){ return m_context; }
+
+    ViewPortStateID getViewPortStateId(){ return m_currentState; }
 
     bool isExpanding() { return !m_slider1.isFinished() || !m_slider2.isFinished(); }
 
